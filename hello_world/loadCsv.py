@@ -4,6 +4,7 @@ import codecs
 import urllib3 as urllib
 import boto3
 import csv
+import config
 
 column_names = [
     'agency_code',
@@ -58,10 +59,10 @@ def lambda_handler(event, context):
     with make_conn() as conn:
         
         s3 = boto3.resource(
-        service_name='s3',
-        aws_access_key_id = 'AKIA45QI5CGSSVCXLNPM',
-        aws_secret_access_key = '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',
-        region_name = 'us-east-2'
+        service_name= config.service_name,
+        aws_access_key_id = config.aws_access_key_id,
+        aws_secret_access_key = config.aws_secret_access_key,
+        region_name = config.region_name
         )
         
         obj = s3.Bucket('sam-app-bucket1-18nplvo8sfoyn').Object('sample.csv').get()
