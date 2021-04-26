@@ -1,0 +1,8 @@
+requests
+psycopg2-binary
+coreapi
+regex
+python-csv
+urllib3
+boto3
+elementpath
